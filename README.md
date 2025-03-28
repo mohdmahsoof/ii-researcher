@@ -1,4 +1,4 @@
-# II Reseacher
+# II-Reseacher
 
 ![ii_reseacher](https://github.com/user-attachments/assets/966dd403-fd73-4829-9d87-3878ecf025b1)
 
