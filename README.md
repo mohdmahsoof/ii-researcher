@@ -14,7 +14,7 @@ A powerful deep search agent that uses BAML functions to perform intelligent web
 
 ## 🎬 Demo
 
-https://github.com/user-attachments/assets/ac0dfd78-bbb4-42af-bc02-58c92dc638ff
+https://github.com/user-attachments/assets/60634037-9d74-41ea-a6d3-e0a0e83b9ca6
 
 ## 🔧 Required Software
 
