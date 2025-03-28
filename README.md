@@ -4,6 +4,8 @@
 
 A powerful deep search agent that uses BAML functions to perform intelligent web searches and generate comprehensive answers to questions.
 
+For more details about our project, please visit our [blog post](https://www.ii.inc/web/blog/post/ii-researcher).
+
 ## Features
 
 - 🔍 Intelligent web search using Tavily and SerpAPI search providers
