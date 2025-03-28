@@ -17,8 +17,8 @@ from .browser.browser import BrowserScraper
 from .firecrawl.firecrawl import FirecrawlScraper
 from .pymupdf.pymupdf import PyMuPDFScraper
 from .tavily_extract.tavily_extract import TavilyExtract
-from .youtube.youtube import YoutubeScraper
 from .utils import is_pdf_url
+from .youtube.youtube import YoutubeScraper
 
 
 def markdown_to_text(markdown_string):

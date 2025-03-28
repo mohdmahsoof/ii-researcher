@@ -10,6 +10,14 @@ from typing import Any, Callable, Dict, Optional
 
 from baml_client.async_client import b
 from baml_client.types import Answer, KnowledgeType, Reflect, Search, Visit
+from ii_researcher.config import (
+    SCRAPE_URL_TIMEOUT,
+    SEARCH_PROCESS_TIMEOUT,
+    SEARCH_PROVIDER,
+    SEARCH_QUERY_TIMEOUT,
+    STEP_SLEEP,
+)
+from ii_researcher.events import Event
 from ii_researcher.pipeline.action_handler.answer import AnswerHandler
 from ii_researcher.pipeline.action_handler.reflect import ReflectHandler
 from ii_researcher.pipeline.action_handler.search import SearchHandler
@@ -17,14 +25,6 @@ from ii_researcher.pipeline.action_handler.visit import VisitHandler
 from ii_researcher.pipeline.evaluator import evaluate_question
 from ii_researcher.pipeline.schemas import ActionWithThinkB
 from ii_researcher.pipeline.state import ActionState, AgentState
-from ii_researcher.config import (
-    SCRAPE_URL_TIMEOUT,
-    SEARCH_PROCESS_TIMEOUT,
-    SEARCH_PROVIDER,
-    SEARCH_QUERY_TIMEOUT,
-    STEP_SLEEP,
-)         
-from ii_researcher.events import Event
 from ii_researcher.utils.url_tools import get_unvisited_urls
 
 
@@ -220,9 +220,9 @@ class DeepSearchAgent:
             )
 
             if self.state.current_question not in self.state.evaluation_metrics:
-                self.state.evaluation_metrics[self.state.current_question] = (
-                    await evaluate_question(self.state.current_question)
-                )
+                self.state.evaluation_metrics[
+                    self.state.current_question
+                ] = await evaluate_question(self.state.current_question)
 
             self.state.allow_search = self.state.allow_search and (
                 len(get_unvisited_urls(self.state.all_urls, self.state.visited_urls))
@@ -262,13 +262,16 @@ class DeepSearchAgent:
             else:
                 print(f"Unknown action type: {type(action)}")
                 await self._send_event(
-                    Event.ERROR.value, {"message": f"Unknown action type: {type(action)}"}
+                    Event.ERROR.value,
+                    {"message": f"Unknown action type: {type(action)}"},
                 )
                 self.state.bad_attempts += 1
 
             # Sleep between steps
             print(f"Step {self.state.step} completed.")
-            await self._send_event(Event.STEP_COMPLETED.value, {"step": self.state.step})
+            await self._send_event(
+                Event.STEP_COMPLETED.value, {"step": self.state.step}
+            )
             await self.sleep()
 
         if not self.state.is_final:

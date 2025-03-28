@@ -2,9 +2,9 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
+from ii_researcher.reasoning.config import ConfigConstants
 from ii_researcher.reasoning.models.action import Action
 from ii_researcher.reasoning.utils import parse_code_blobs
-from ii_researcher.reasoning.config import ConfigConstants
 
 
 class ModelOutput(BaseModel):
@@ -56,17 +56,17 @@ class ModelOutput(BaseModel):
 
 
 def clean_streamed_output(text: str) -> str:
-        """
-        Clean the streamed output by removing the end_code marker.
+    """
+    Clean the streamed output by removing the end_code marker.
 
-        Args:
-            text (str): The streamed output text.
+    Args:
+        text (str): The streamed output text.
 
-        Returns:
-            str: The cleaned text.
-        """
-        text = text.strip()
-        for i in range(len(ConfigConstants.END_CODE), 0, -1):
-            if text.endswith(ConfigConstants.END_CODE[:i]):
-                return text[:-i]
-        return text
+    Returns:
+        str: The cleaned text.
+    """
+    text = text.strip()
+    for i in range(len(ConfigConstants.END_CODE), 0, -1):
+        if text.endswith(ConfigConstants.END_CODE[:i]):
+            return text[:-i]
+    return text

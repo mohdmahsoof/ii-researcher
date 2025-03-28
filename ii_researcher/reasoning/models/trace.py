@@ -2,8 +2,9 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-from ii_researcher.reasoning.models.output import ModelOutput
 from ii_researcher.reasoning.config import ConfigConstants
+from ii_researcher.reasoning.models.output import ModelOutput
+
 
 class Turn(BaseModel):
     """A model representing a single turn in the conversation."""

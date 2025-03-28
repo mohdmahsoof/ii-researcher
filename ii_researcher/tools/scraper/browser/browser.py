@@ -55,7 +55,13 @@ class BrowserScraper:
 
     def _import_selenium(self):
         try:
-            global webdriver, By, EC, WebDriverWait, TimeoutException, WebDriverException
+            global \
+                webdriver, \
+                By, \
+                EC, \
+                WebDriverWait, \
+                TimeoutException, \
+                WebDriverException
             from selenium import webdriver
             from selenium.common.exceptions import TimeoutException, WebDriverException
             from selenium.webdriver.common.by import By

@@ -7,7 +7,12 @@ from ii_researcher.pipeline.agent import DeepSearchAgent
 from ii_researcher.reasoning.agent import ReasoningAgent
 
 
-async def main(question: str, save_report: bool = False, use_reasoning: bool = False, is_stream: bool = False):
+async def main(
+    question: str,
+    save_report: bool = False,
+    use_reasoning: bool = False,
+    is_stream: bool = False,
+):
     """Main entry point for the agent that combines normal deep search and reasoning capabilities."""
 
     def on_token(token: str):

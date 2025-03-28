@@ -4,9 +4,9 @@ from typing import Any, Dict
 
 from baml_client.async_client import b
 from baml_client.types import KnowledgeItem, KnowledgeType, Visit
+from ii_researcher.events import Event
 from ii_researcher.pipeline.action_handler.base import ActionHandler
 from ii_researcher.pipeline.schemas import ActionWithThinkB
-from ii_researcher.events import Event
 from ii_researcher.tools.web_scraper_compressor import WebScraperCompressor
 from ii_researcher.utils.prompt import (
     VISIT_DUPLICATE_PROMPT,

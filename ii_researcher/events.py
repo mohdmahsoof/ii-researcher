@@ -1,4 +1,6 @@
 from enum import Enum
+
+
 class Event(Enum):
     START = "start"  # When the process starts
     STEP = "step"  # When a step is started

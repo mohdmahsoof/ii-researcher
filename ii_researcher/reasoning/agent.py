@@ -13,8 +13,8 @@ from ii_researcher.reasoning.tools.registry import (
     get_all_tools,
     get_tool,
 )
-from ii_researcher.reasoning.tools.web_search import WebSearchTool
 from ii_researcher.reasoning.tools.web_scraper import WebScraperTool
+from ii_researcher.reasoning.tools.web_search import WebSearchTool
 
 
 class ReasoningAgent:
@@ -101,7 +101,9 @@ class ReasoningAgent:
             logging.error("Error executing action %s: %s", action.name, str(e))
             return f"Error executing {action.name}: {str(e)}", None
 
-    async def run(self, on_token: Optional[Callable[[str], None]] = None, is_stream: bool = False) -> str:
+    async def run(
+        self, on_token: Optional[Callable[[str], None]] = None, is_stream: bool = False
+    ) -> str:
         """Run the agent."""
         turn = 0
 
@@ -162,9 +164,7 @@ class ReasoningAgent:
                             self.trace, on_token
                         )
                     else:
-                        final_report = await self.client.generate_report(
-                            self.trace
-                        )
+                        final_report = await self.client.generate_report(self.trace)
 
                     # Create a final turn with the report
                     report_output = ModelOutput(raw=final_report, is_last=True)

@@ -48,7 +48,9 @@ class ContextCompressor:
         # assert that all compressor results are subsets of the chunks
         all_chunks_set = set(range(len(chunks)))
         for compressor_result in compressor_results:
-            assert set(compressor_result).issubset(
+            assert set(
+                compressor_result
+            ).issubset(
                 all_chunks_set
             ), f"Compressor result {compressor_result} is not a subset of all chunks {all_chunks_set}"
 

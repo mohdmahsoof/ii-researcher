@@ -1,7 +1,6 @@
 import asyncio
 import json
 import logging
-from functools import partial
 from typing import Any, Callable, Dict
 
 from fastapi import FastAPI, Request
@@ -51,9 +50,14 @@ async def stream_generator(
         reasoning_agent = ReasoningAgent(
             question=question, stream_event=stream_manager.create_event_message
         )
-        on_token = lambda token: asyncio.create_task(handle_reasoning_event(stream_manager.create_event_message, token))
+
+        def handle_token(token):
+            return asyncio.create_task(
+                handle_reasoning_event(stream_manager.create_event_message, token)
+            )
+
         search_task = asyncio.create_task(
-            reasoning_agent.run(on_token=on_token, is_stream=True)
+            reasoning_agent.run(on_token=handle_token, is_stream=True)
         )
     else:
         agent = DeepSearchAgent(stream_event=stream_manager.create_event_message)

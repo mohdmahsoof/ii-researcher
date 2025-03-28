@@ -42,7 +42,7 @@ class ToolRegistry:
         # Sort tools to ensure web_search comes before page_visit
         sorted_tools = sorted(
             self._tools.items(),
-            key=lambda x: (x[0] != "web_search", x[0] != "page_visit", x[0])
+            key=lambda x: (x[0] != "web_search", x[0] != "page_visit", x[0]),
         )
         for _, tool_cls in sorted_tools:
             tool_instance = tool_cls()

@@ -4,6 +4,7 @@ from typing import List
 
 from baml_client.async_client import b
 from baml_client.types import Answer, EvaluationType
+from ii_researcher.config import SCRAPE_URL_TIMEOUT
 from ii_researcher.pipeline.schemas import (
     AttributionAnalysis,
     CompletenessAnalysis,
@@ -11,7 +12,6 @@ from ii_researcher.pipeline.schemas import (
     FreshnessAnalysis,
     PluralityAnalysis,
 )
-from ii_researcher.config import SCRAPE_URL_TIMEOUT
 from ii_researcher.tools.web_scraper_compressor import WebScraperCompressor
 
 
