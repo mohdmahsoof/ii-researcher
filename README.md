@@ -1,4 +1,4 @@
-# II Deep Search
+# II Reseacher
 
 A powerful deep search agent that uses BAML functions to perform intelligent web searches and generate comprehensive answers to questions.
 
@@ -10,18 +10,13 @@ A powerful deep search agent that uses BAML functions to perform intelligent web
 - Configurable LLM models for different tasks
 - Asynchronous operation for better performance
 - Comprehensive answer generation with references
-- Performance monitoring with Langfuse
+- Support for customizable pipelines and reasoning methods for deep search
 
-## Prerequisites
+## Required Software
 
-- Python 3.7+ (for local development)
-- Docker and Docker Compose (for containerized deployment)
-- OpenAI API key
-- Tavily API key (for web search and extraction)
-- SerpAPI API key (alternative search provider)
-- Firecrawl API key (for web scraping)
-- Langfuse keys (for monitoring)
-- Node.js and npm (for local frontend development)
+- Python 3.7+ (required for local development)
+- Docker and Docker Compose (required for containerized deployment)
+- Node.js and npm (required for local frontend development)
 
 ## Installation and Setup
 
@@ -40,7 +35,7 @@ pip install -e .
 
 3. Set up your environment variables:
 
-````bash
+```bash
 # API Keys
 export OPENAI_API_KEY="your-openai-api-key"
 export TAVILY_API_KEY="your-tavily-api-key" # set this api key when you select SEARCH_PROVIDER is tavily
@@ -65,13 +60,14 @@ export SEARCH_PROCESS_TIMEOUT="300"  # in seconds
 export SEARCH_QUERY_TIMEOUT="20"     # in seconds
 export SCRAPE_URL_TIMEOUT="30"       # in seconds
 export STEP_SLEEP="100"              # in milliseconds
+```
 
+Config env when using compress by LLM (Optional: For better compression performance)
 
-Config env when using compress by LLM
 ```bash
 export USE_LLM_COMPRESSOR="TRUE"
 export FAST_LLM="gemini-lite" # The model use for context compression
-````
+```
 
 Config env when run with **Pipeline**:
 
@@ -90,7 +86,7 @@ export R_REPORT_MODEL=gpt-4o # The model use for writing report
 export R_PRESENCE_PENALTY=0 # Config presence_penalty for reasoning model
 ```
 
-1. Configure and Run LiteLLM (Local LLM Server):
+Configure and Run LiteLLM (Local LLM Server):
 
 ```bash
 # Install LiteLLM
@@ -122,37 +118,7 @@ litellm --config litellm_config.yaml
 
 The LiteLLM server will run on http://localhost:4000 by default.
 
-5. Install and Run Backend API:
-
-```bash
-# Start the API server
-python api.py
-```
-
-The API server will run on http://localhost:8000
-
-6. Install and Run Frontend:
-
-```bash
-# Navigate to frontend directory
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-The frontend will be available at http://localhost:3000
-
 ## Usage
-
-### Using the Web Interface
-
-1. Open your browser and navigate to http://localhost:3000
-2. Enter your question in the search box
-3. View the real-time search results and final answer
 
 ### Using the CLI
 
@@ -171,6 +137,32 @@ python cli.py --question "your question here"
 ```bash
 python cli.py --question "your question here" --use-reasoning --stream
 ```
+
+### Using the Web Interface
+
+1. Install and Run Backend API (In case for frontend serving):
+
+```bash
+# Start the API server
+python api.py
+```
+
+The API server will run on http://localhost:8000
+
+2. Install and Run Frontend:
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The frontend will be available at http://localhost:3000
 
 ## Run with Docker
 
