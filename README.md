@@ -153,7 +153,15 @@ python api.py
 
 The API server will run on http://localhost:8000
 
-2. Install and Run Frontend:
+2. Setup env for Frontend
+
+Create a `.env` file in the frontend directory with the following content:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+3. Install and Run Frontend:
 
 ```bash
 # Navigate to frontend directory

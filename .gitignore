@@ -66,3 +66,6 @@ litellm.yaml
 /*.json
 # But allow specific JSON files if needed
 # !specific-file-to-include.json
+
+litellm_config.yaml
+.envrc
