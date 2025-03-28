@@ -1,0 +1,16 @@
+FROM python:3.10.15
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+RUN pip install --upgrade pip
+RUN pip install 'litellm[proxy]'
+
+# Copy litellm configuration file
+COPY litellm_config.yaml /app/litellm_config.yaml
+
+EXPOSE 4000
+
+# Run litellm server with the provided config file
+CMD ["litellm", "--config", "litellm_config.yaml"]

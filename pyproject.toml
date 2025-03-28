@@ -1,0 +1,40 @@
+
+
+[project]
+name = "baml-ii"
+version = "0.1.0"
+description = "BAML-based II Deep Search Agent"
+requires-python = ">=3.10"
+dependencies = [
+    "baml-py==0.77.0",
+    "pydantic>=2.0.0",
+    "fastapi>=0.100.0",
+    "requests>=2.32.3",
+    "bs4>=0.0.2",
+    "markdownify>=1.0.0",
+    "readability-lxml>=0.8.1",
+    "lxml[html-clean]>=5.3.1",
+    "tavily-python>=0.5.1",
+    "colorama>=0.4.6",
+    "langchain-community>=0.3.18",
+    "yt-dlp>=2025.2.19",
+    "click>=8.1.8",
+    "langchain-openai>=0.3.7",
+    "pymupdf>=1.25.3",
+    "markdown>=3.7",
+    "clean-text[gpl]>=0.6.0",
+    "litellm[proxy]>=1.63.6",
+    "uvicorn>=0.29.0",
+    "baml-cli>=0.1.0",
+]
+
+[tool.setuptools]
+packages = ["baml_client", "ii_researcher"]
+
+[dependency-groups]
+dev = [
+    "datasets>=3.3.2",
+    "ipdb>=0.13.13",
+    "ipykernel>=6.29.5",
+]
+
