@@ -12,6 +12,12 @@ A powerful deep search agent that uses BAML functions to perform intelligent web
 - Comprehensive answer generation with references
 - Support for customizable pipelines and reasoning methods for deep search
 
+## Demo
+
+
+https://github.com/user-attachments/assets/ac0dfd78-bbb4-42af-bc02-58c92dc638ff
+
+
 ## Required Software
 
 - Python 3.7+ (required for local development)
