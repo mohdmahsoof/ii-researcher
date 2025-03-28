@@ -4,27 +4,25 @@ A powerful deep search agent that uses BAML functions to perform intelligent web
 
 ## Features
 
-- Intelligent web search using Tavily and SerpAPI search providers
-- Web scraping and content extraction with multiple providers (Firecrawl, Browser, BS4, Tavily)
-- Multi-step reasoning and reflection
-- Configurable LLM models for different tasks
-- Asynchronous operation for better performance
-- Comprehensive answer generation with references
-- Support for customizable pipelines and reasoning methods for deep search
+- 🔍 Intelligent web search using Tavily and SerpAPI search providers
+- 🕸️ Web scraping and content extraction with multiple providers (Firecrawl, Browser, BS4, Tavily)
+- 🧠 Multi-step reasoning and reflection
+- ⚙️ Configurable LLM models for different tasks
+- ⚡ Asynchronous operation for better performance
+- 📝 Comprehensive answer generation with references
+- 🛠️ Support for customizable pipelines and reasoning methods for deep search
 
-## Demo
-
+## 🎬 Demo
 
 https://github.com/user-attachments/assets/ac0dfd78-bbb4-42af-bc02-58c92dc638ff
 
-
-## Required Software
+## 🔧 Required Software
 
 - Python 3.7+ (required for local development)
 - Docker and Docker Compose (required for containerized deployment)
 - Node.js and npm (required for local frontend development)
 
-## Installation and Setup
+## 🛠️ Installation and Setup
 
 1. Clone the repository:
 
@@ -124,7 +122,7 @@ litellm --config litellm_config.yaml
 
 The LiteLLM server will run on http://localhost:4000 by default.
 
-## Usage
+## 🖥️ Usage
 
 ### Using the CLI
 
@@ -170,7 +168,7 @@ npm run dev
 
 The frontend will be available at http://localhost:3000
 
-## Run with Docker
+## 🐳 Run with Docker
 
 1. **Important**: Make sure you have set up all environment variables from step 3 before proceeding.
 
@@ -211,10 +209,19 @@ docker compose logs -f litellm
 docker compose down
 ```
 
-## Running QwQ Model with SGLang
+## 🛠️ Running QwQ Model with SGLang
 
 To run the Qwen/QwQ-32B model using SGLang, use the following command:
 
 ```bash
 python3 -m sglang.launch_server --model-path Qwen/QwQ-32B --host 0.0.0.0 --port 30000 --tp 8 --context-length 131072
 ```
+
+## Acknowledgments 💡
+
+II-Researcher is inspired by and built with the support of the open-source community:
+
+- **[LiteLLM](https://www.litellm.ai/)** – Used for efficient AI model integration.
+- **[node-DeepResearch](https://github.com/jina-ai/node-DeepResearch)** – Prompt inspiration
+- **[gpt-reseacher](https://github.com/assafelovic/gpt-researcher)** - Prompt inspiration, web scraper tool
+- **[baml](https://github.com/BoundaryML/baml)** - Structured outputs
