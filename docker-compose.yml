@@ -1,0 +1,60 @@
+services:
+  frontend:
+    image: ii_researcher/frontend
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://api:8000
+    depends_on:
+      - api
+
+  litellm:
+    image: ii_researcher/litellm
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.litellm
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+
+  api:
+    image: ii_researcher/api
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - FIRECRAWL_API_KEY=${FIRECRAWL_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASE_URL=http://litellm:4000
+      - SERPAPI_API_KEY=${SERPAPI_API_KEY}
+      - SEARCH_PROVIDER=${SEARCH_PROVIDER}
+      - SCRAPER_PROVIDER=${SCRAPER_PROVIDER}
+      - SEARCH_PROCESS_TIMEOUT=${SEARCH_PROCESS_TIMEOUT}
+      - SEARCH_QUERY_TIMEOUT=${SEARCH_QUERY_TIMEOUT}
+      - SCRAPE_URL_TIMEOUT=${SCRAPE_URL_TIMEOUT}
+      - STEP_SLEEP=${STEP_SLEEP}
+      - COMPRESS_MAX_OUTPUT_WORDS=${COMPRESS_MAX_OUTPUT_WORDS}
+      - COMPRESS_MAX_INPUT_WORDS=${COMPRESS_MAX_INPUT_WORDS}
+      - COMPRESS_EMBEDDING_MODEL=${COMPRESS_EMBEDDING_MODEL}
+      - COMPRESS_SIMILARITY_THRESHOLD=${COMPRESS_SIMILARITY_THRESHOLD}
+      - STRATEGIC_LLM=${STRATEGIC_LLM}
+      - SMART_LLM=${SMART_LLM}
+      - FAST_LLM=${FAST_LLM}
+      - R_MODEL=${R_MODEL}
+      - R_TEMPERATURE=${R_TEMPERATURE}
+      - R_REPORT_MODEL=${R_REPORT_MODEL}
+      - R_PRESENCE_PENALTY=${R_PRESENCE_PENALTY}
+      - USE_LLM_COMPRESSOR=${USE_LLM_COMPRESSOR}
+    command: python api.py
+    depends_on:
+      - litellm
