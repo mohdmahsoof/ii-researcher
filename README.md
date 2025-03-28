@@ -1,5 +1,7 @@
 # II Reseacher
 
+![ii_reseacher](https://github.com/user-attachments/assets/966dd403-fd73-4829-9d87-3878ecf025b1)
+
 A powerful deep search agent that uses BAML functions to perform intelligent web searches and generate comprehensive answers to questions.
 
 ## Features
@@ -153,7 +155,15 @@ python api.py
 
 The API server will run on http://localhost:8000
 
-2. Install and Run Frontend:
+2. Setup env for Frontend
+
+Create a `.env` file in the frontend directory with the following content:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+3. Install and Run Frontend:
 
 ```bash
 # Navigate to frontend directory
