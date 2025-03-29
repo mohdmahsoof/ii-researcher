@@ -204,7 +204,7 @@ export default function Home() {
           layout
           layoutId="page-title"
         >
-          Deep Search
+          II-Researcher
         </motion.h1>
         {isInChatView ? (
           <Button className="cursor-pointer" onClick={resetChat}>
