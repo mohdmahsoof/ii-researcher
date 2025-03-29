@@ -229,7 +229,7 @@ To run the Qwen/QwQ-32B model using SGLang, use the following command:
 python3 -m sglang.launch_server --model-path Qwen/QwQ-32B --host 0.0.0.0 --port 30000 --tp 8 --context-length 131072
 ```
 
-## Acknowledgments 💡
+## 💡 Acknowledgments
 
 II-Researcher is inspired by and built with the support of the open-source community:
 
