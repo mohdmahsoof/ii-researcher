@@ -30,11 +30,19 @@ class WebScraperCompressor:
         if context_compressor:
             self.context_compressor = context_compressor
         else:
-            embedding_compressor = EmbeddingCompressor(
-                similarity_threshold=COMPRESS_SIMILARITY_THRESHOLD,
-                embedding_model=COMPRESS_EMBEDDING_MODEL,
-            )
-            compressors = [embedding_compressor]
+            if COMPRESS_EMBEDDING_MODEL is not None and len(
+                COMPRESS_EMBEDDING_MODEL.strip()
+            ) > 0:
+                # Initialize the embedding compressor with the specified similarity threshold
+                # and embedding model
+                embedding_compressor = EmbeddingCompressor(
+                    similarity_threshold=COMPRESS_SIMILARITY_THRESHOLD,
+                    embedding_model=COMPRESS_EMBEDDING_MODEL,
+                )
+                compressors = [embedding_compressor]
+            else:
+                compressors = []
+
             if USE_LLM_COMPRESSOR:
                 llm_compressor = LLMCompressor()
                 compressors.append(llm_compressor)
@@ -44,6 +52,11 @@ class WebScraperCompressor:
                 max_input_words=COMPRESS_MAX_INPUT_WORDS,
                 max_output_words=COMPRESS_MAX_OUTPUT_WORDS,
             )
+
+            if len(compressors) == 0:
+                raise ValueError(
+                    "No compressors available. Please check your configuration."
+                )
 
     def _scrape_urls(self, urls):
         """
