@@ -1,6 +1,6 @@
-# II-Reseacher
+# II-Researcher
 
-![ii_reseacher](https://github.com/user-attachments/assets/966dd403-fd73-4829-9d87-3878ecf025b1)
+![ii_researcher](https://github.com/user-attachments/assets/966dd403-fd73-4829-9d87-3878ecf025b1)
 
 A powerful deep search agent that uses BAML functions to perform intelligent web searches and generate comprehensive answers to questions.
 
@@ -31,8 +31,8 @@ https://github.com/user-attachments/assets/60634037-9d74-41ea-a6d3-e0a0e83b9ca6
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Intelligent-Internet/ii_reseacher.git
-cd ii_reseacher
+git clone https://github.com/Intelligent-Internet/ii-researcher.git
+cd ii-researcher
 ```
 
 2. Install the package in development mode:
@@ -235,5 +235,5 @@ II-Researcher is inspired by and built with the support of the open-source commu
 
 - **[LiteLLM](https://www.litellm.ai/)** – Used for efficient AI model integration.
 - **[node-DeepResearch](https://github.com/jina-ai/node-DeepResearch)** – Prompt inspiration
-- **[gpt-reseacher](https://github.com/assafelovic/gpt-researcher)** - Prompt inspiration, web scraper tool
+- **[gpt-researcher](https://github.com/assafelovic/gpt-researcher)** - Prompt inspiration, web scraper tool
 - **[baml](https://github.com/BoundaryML/baml)** - Structured outputs
