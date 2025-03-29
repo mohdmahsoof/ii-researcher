@@ -18,4 +18,4 @@ SCRAPE_URL_TIMEOUT = int(os.getenv("SCRAPE_URL_TIMEOUT", "30"))
 SEARCH_PROCESS_TIMEOUT = int(os.getenv("SEARCH_PROCESS_TIMEOUT", "300"))
 
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "http://localhost:4000")
-USE_LLM_COMPRESSOR = bool(os.getenv("USE_LLM_COMPRESSOR", "FALSE"))
+USE_LLM_COMPRESSOR = os.getenv("USE_LLM_COMPRESSOR", "false").lower() == "true"
