@@ -28,20 +28,20 @@ https://github.com/user-attachments/assets/60634037-9d74-41ea-a6d3-e0a0e83b9ca6
 
 ## 🛠️ Installation and Setup
 
-1. Clone the repository:
+### 1. Clone the repository:
 
 ```bash
 git clone https://github.com/Intelligent-Internet/ii-researcher.git
 cd ii-researcher
 ```
 
-2. Install the package in development mode:
+### 2. Install the package in development mode:
 
 ```bash
 pip install -e .
 ```
 
-3. Set up your environment variables:
+### 3. Set up your environment variables:
 
 ```bash
 # API Keys
@@ -94,7 +94,7 @@ export R_REPORT_MODEL=gpt-4o # The model use for writing report
 export R_PRESENCE_PENALTY=0 # Config presence_penalty for reasoning model
 ```
 
-Configure and Run LiteLLM (Local LLM Server):
+### 4. Configure and Run LiteLLM (Local LLM Server):
 
 ```bash
 # Install LiteLLM
@@ -103,6 +103,10 @@ pip install litellm
 # Create litellm_config.yaml file
 cat > litellm_config.yaml << EOL
 model_list:
+  - model_name: text-embedding-3-large
+    litellm_params:
+      model: text-embedding-3-large
+      api_key: ${OPENAI_API_KEY}
   - model_name: gpt-4o
     litellm_params:
       model: gpt-4o
@@ -125,6 +129,38 @@ litellm --config litellm_config.yaml
 ```
 
 The LiteLLM server will run on http://localhost:4000 by default.
+
+### 5. (Optional) Configure and Run LiteLLM with **OpenRouter**:
+
+```bash
+cat > litellm_config.yaml << EOL
+model_list:
+  - model_name: text-embedding-3-large
+    litellm_params:
+      model: text-embedding-3-large
+      api_key: ${OPENAI_API_KEY}
+  - model_name: "gpt-4o"
+    litellm_params:
+      model: "openai/chatgpt-4o-latest"
+      api_base: "https://openrouter.ai/api/v1"
+      api_key: "your_openrouter_api_key_here"
+
+  - model_name: "r1"
+    litellm_params:
+      model: "deepseek/deepseek-r1"
+      api_base: "https://openrouter.ai/api/v1"
+      api_key: "your_openrouter_api_key_here"
+
+  - model_name: "gemini-lite"
+    litellm_params:
+      model: "google/gemini-2.0-flash-lite-001"
+      api_base: "https://openrouter.ai/api/v1"
+      api_key: "your_openrouter_api_key_here"
+
+litellm_settings:
+  drop_params: true
+EOL
+```
 
 ## 🖥️ Usage
 
